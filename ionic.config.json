@@ -1,0 +1,7 @@
+{
+  "name": "mangue-tour",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
