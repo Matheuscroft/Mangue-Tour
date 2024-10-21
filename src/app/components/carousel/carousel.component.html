@@ -1,0 +1,17 @@
+<ion-content class="ion-padding">
+  <div class="carousel-container">
+    <ion-card *ngFor="let item of items">
+      <ion-card-header>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ng-container *ngIf="item.image">
+          <img [src]="item.image" alt="{{ item.title }}" />
+        </ng-container>
+        <ng-container *ngIf="item.description">
+          <p>{{ item.description }}</p>
+        </ng-container>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

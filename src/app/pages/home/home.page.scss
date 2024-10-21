@@ -1,0 +1,46 @@
+ion-content {
+  --padding: 16px;
+
+  h2 {
+    text-align: start;
+    margin-bottom: 16px;
+  }
+
+  .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 16px;
+
+    ion-card {
+      min-width: 200px;
+      margin-right: 16px;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      img {
+        max-width: 200px;
+      }
+    }
+
+    ion-card:last-child {
+      margin-right: 0;
+    }
+
+
+  }
+
+  /* Adiciona uma barra de rolagem customizada para melhor visualização */
+  .carousel-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .carousel-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+
+  .carousel-container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
