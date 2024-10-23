@@ -10,4 +10,17 @@
       <ion-title size="large">Pesquisar</ion-title>
     </ion-toolbar>
   </ion-header>
+ <!--Fazer um mecanismo para quando pesquisar redenrizar somente a pesquisa, e sumir com as pesquisas recentes-->
+  <div class="ion-padding">
+    <ion-label>Pesquisar</ion-label>
+    <ion-searchbar [debounce]="100" (ionInput)="handleInput($event)" placeholder="Local, Bairro, Ponto..."></ion-searchbar>
+    <ion-list class="search-container">
+      <h2>Últimas Pesquisas</h2>
+      <ion-card *ngFor="let result of results">
+        <ion-card-header>
+          <ion-card-title>{{ result }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
+  </div>
 </ion-content>

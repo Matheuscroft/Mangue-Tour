@@ -1,0 +1,13 @@
+ion-padding {
+  --padding: 16px;
+  h2 {
+    text-align: start;
+    margin-bottom: 16px;
+  }
+  .search-container {
+    ion-card {
+      min-width: 200px;
+      margin-right: 16px;
+    }
+  }
+}

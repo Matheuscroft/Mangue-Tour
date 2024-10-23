@@ -1,0 +1,15 @@
+ion-content {
+  --padding: 16px;
+
+  .map {
+    position: absolute;
+    height: 100%;
+    width: 90%;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+  }
+  .map.visible {
+    opacity: 1;
+  }
+}

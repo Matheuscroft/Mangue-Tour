@@ -1,0 +1,14 @@
+ion-content {
+  --padding: 16px;
+  ion-grid {
+    padding: 16px;
+    ion-row {
+      text-align: center;
+      display: flex;
+      ion-icon {
+        font-size: 64px;
+        padding: 30px;
+      }
+    }
+  }
+}

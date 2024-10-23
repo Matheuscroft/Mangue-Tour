@@ -10,4 +10,20 @@
       <ion-title size="large">Mapa</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="ion-padding">
+    <ion-input label="Pesquisar" label-placement="floating" fill="outline" placeholder="Local, Bairro, Ponto...">
+      <ion-icon slot="start" name="search" aria-hidden="true"></ion-icon>
+    </ion-input>
+    <ion-segment value="mapa">
+      <ion-segment-button value="meuMapa">
+        <ion-label>Meu Mapa</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="mapaGeral">
+        <ion-label>Mapa Geral</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div class="map" #map>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam sint quia iste tempore amet, esse laudantium dignissimos earum. Ullam architecto aliquid recusandae voluptate, nam voluptatum fugiat quisquam quis eos maxime.
+    </div>
+  </div>
 </ion-content>

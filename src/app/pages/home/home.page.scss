@@ -26,21 +26,5 @@ ion-content {
     ion-card:last-child {
       margin-right: 0;
     }
-
-
-  }
-
-  /* Adiciona uma barra de rolagem customizada para melhor visualização */
-  .carousel-container::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .carousel-container::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 4px;
-  }
-
-  .carousel-container::-webkit-scrollbar-track {
-    background-color: transparent;
   }
 }
