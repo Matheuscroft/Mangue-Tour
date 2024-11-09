@@ -71,3 +71,36 @@ ion-content {
     }
   }
 }
+ion-list{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+ion-list ion-item{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+ion-modal {
+  --height: 60%;
+  --border-radius: 16px;
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal .novaViagem{
+  --background: #FFF3D6;
+  --color: black;
+
+}
+ion-modal ion-toolbar .novoRoteiro{
+  --background: #9FCAB6;
+  --color: black;
+}
+ion-modal ion-toolbar .pontoTuristico{
+  --background: #ACBFF7;
+  --color: black;
+}
