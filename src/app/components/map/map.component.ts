@@ -35,7 +35,7 @@ export class MapComponent implements OnInit {
     if (typeof google === 'undefined' || !google.maps) {
       // Carrega o script da API do Google Maps dinamicamente
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyB6PDyolti-G5YowgTENZFlcmzFKZocis&libraries=places`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBQp1CSuh_44lc8YBiRBT05-YQiT0RA1JY&libraries=places`;
       script.async = true;
       document.head.appendChild(script);
 
@@ -58,7 +58,7 @@ export class MapComponent implements OnInit {
 
     this.map = new google.maps.Map(mapEl, {
       center: location,
-      zoom: 12,
+      zoom: 15,
       mapId: '12fc846a698d6d87',
     });
 
