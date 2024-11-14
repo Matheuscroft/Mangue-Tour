@@ -10,4 +10,164 @@
       <ion-title size="large">Perfil</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-card class="profile-card">
+    <div class="img-wrapper">
+      <img src="../../../assets/icon/icon.png" />
+      <ion-button class="photo-button" color="light">
+        <ion-icon class="icon-camera" slot="icon-only" name="camera-outline" color="medium">
+        </ion-icon>
+      </ion-button>
+    </div>
+    <ion-card-content class="ion-text-center">
+      <h2>Matheus OS</h2>
+      <ion-text color="medium">
+        <div style="display: flex;" class="ion-justify-content-center">
+          <ion-icon name="location-outline" color="medium">
+          </ion-icon>
+          <p>123 Rua Top, Olinda, BR.</p>
+        </div>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="ion-padding">
+    <div class="header">
+      <h2 class="carousel-title">Minhas Viagens
+      </h2>
+      <ion-button color="light" shape="round" id="open-modal"><ion-icon slot="icon-only" size="large"
+          name="add-circle-outline"></ion-icon></ion-button>
+    </div>
+    <ion-modal #modal trigger="open-modal">
+      <ng-template>
+        <ion-content>
+          <ion-toolbar class="novaViagem">
+            <ion-title>Modal</ion-title>
+            <ion-buttons slot="end">
+              <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+          <ion-list>
+            <h3>Título</h3>
+            <ion-item>
+              <ion-input label="Título" label-placement="floating" fill="outline" placeholder="Título da Viagem"
+                [clearInput]="true"></ion-input>
+            </ion-item>
+
+
+            <ion-label>Data de Início</ion-label>
+            <ion-datetime-button datetime="dataTimeStart"></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="dataTimeStart" [showDefaultButtons]="true"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+
+            <ion-label>Data de Fim</ion-label>
+            <ion-datetime-button datetime="dataTimeEnd"></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="dataTimeEnd" [showDefaultButtons]="true"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <div class="carousel-container">
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Recife</ion-card-title>
+          <ion-card-subtitle>2023</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          09/10 - 16/10
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Recife</ion-card-title>
+          <ion-card-subtitle>2024</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          01/07 - 25/07
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Recife</ion-card-title>
+          <ion-card-subtitle>2024</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          20/10 - 23/10
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+  </div>
+
+
+  <div class="ion-padding">
+    <div class="header">
+      <h2 class="carousel-title">Meus Roteiros
+      </h2>
+      <ion-icon style="padding-left: 10px;" size="large" name="add-circle-outline"></ion-icon>
+    </div>
+
+    <div class="carousel-container">
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Tour Igrejas Recife</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Estátuas Culturais</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Pontes Recife</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+    </div>
+  </div>
+
+
+  <div class="ion-padding">
+    <div class="header">
+      <h2 class="carousel-title">Meus Pontos
+      </h2>
+      <ion-icon style="padding-left: 10px;" size="large" name="add-circle-outline"></ion-icon>
+    </div>
+
+    <div class="carousel-container">
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Igreja N. Senhora do Carmo</ion-card-title>
+          <ion-card-subtitle>Avenida Dantas Barretos</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Ponte da Boa Vista</ion-card-title>
+          <ion-card-subtitle>Rua do Sol</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="carousel-card">
+        <ion-card-header class="carousel-header-card">
+          <ion-card-title class="carousel-title-card">Paço do Frevo</ion-card-title>
+          <ion-card-subtitle>Rua da Guia</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+
+    </div>
+  </div>
 </ion-content>
