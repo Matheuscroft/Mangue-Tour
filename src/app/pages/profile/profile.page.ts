@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PontosServicoService } from 'src/app/services/pontos-servico.service';
 
 
 @Component({
@@ -8,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  pontosTuristicosList: any = null;
 
-  ngOnInit() {}
+  constructor(private pontosServicoService: PontosServicoService) { }
+
+  ngOnInit() {
+
+    this.pontosServicoService.getPontosTuristicosList().subscribe((data: any) => {
+      console.log(data)
+      this.pontosTuristicosList = data;
+    })
+  }
 }

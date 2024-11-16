@@ -1,3 +1,8 @@
-<p>
-  card-roteiro works!
-</p>
+<ion-card [ngClass]="{ 'card-with-image': imagem, 'card-without-image': !imagem }">
+  <ng-container *ngIf="imagem">
+    <img [src]="imagem" alt="{{ titulo }}" />
+  </ng-container>
+  <ion-card-header>
+    <ion-card-title>{{ titulo }}</ion-card-title>
+  </ion-card-header>
+</ion-card>

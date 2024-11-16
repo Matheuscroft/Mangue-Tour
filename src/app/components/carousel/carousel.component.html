@@ -1,18 +1,10 @@
-<ion-content class="ion-padding">
+<div class="ion-padding">
+  <h2>{{ nome }}</h2>
   <div class="carousel-container">
-    <ion-card *ngFor="let item of items">
-      <ion-card-header>
-        <ion-card-title>{{ item.title }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ng-container *ngIf="item.image">
-          <img [src]="item.image" alt="{{ item.title }}" />
-        </ng-container>
-        <ng-container *ngIf="item.description">
-          <p>{{ item.description }}</p>
-        </ng-container>
-      </ion-card-content>
-    </ion-card>
+    <CardRoteiro
+      *ngFor="let item of items"
+      [titulo]="item.titulo"
+      [imagem]="item.imagem"
+    ></CardRoteiro>
   </div>
-  <h2>CUUUU</h2>
-</ion-content>
+</div>

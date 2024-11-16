@@ -13,60 +13,29 @@
     </ion-toolbar>
   </ion-header>
 
-  <Carousel></Carousel>
-<CardRoteiro></CardRoteiro>
+  <Carousel [items]="[
+    { titulo: 'Restaurantes Tradicionais' },
+    { titulo: 'Museus Culturais' },
+    { titulo: 'Música e Dança' }
+  ]" [nome]="'Roteiros da Comunidade'"></Carousel>
 
-  <div class="ion-padding">
-    <h2>Roteiros da Comunidade</h2>
-    <div class="carousel-container">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Restaurantes Tradicionais</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Museus Culturais</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </div>
-  </div>
+  <Carousel [items]="[
+    { titulo: 'Cais do Sertão' },
+    { titulo: 'Ponte P. Isabel' },
+    { titulo: 'Rua do Imperador' }
+  ]" [nome]="'Sugestões Para Você'"></Carousel>
 
-  <div class="ion-padding">
-    <h2>Sugestões Para Você</h2>
-    <div class="carousel-container">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Cais do Sertão</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Ponte P. Isabel</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </div>
-  </div>
+  <Carousel [nome]="'Atrações na Localidade'" [items]="[
+      { titulo: 'Hotel Central', imagem: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/142985801.jpg?k=ddd625cf745aa193eb788b12d1527e99acc5d20fdbed110a849608e946086cb2&o=&hp=1' },
+      { titulo: 'Clube Metrópole', imagem: 'https://images.sympla.com.br/6239b1e16d776.jpg' },
+      { titulo: 'Teatro de Santa Isabel', imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRj5-CfRXyXU5GM9c4UUDk3Su3x3qP7R7YCQ&s'}
+    ]"></Carousel>
 
-  <div class="ion-padding">
-    <h2>Atrações na Localidade</h2>
-    <div class="carousel-container">
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-        <ion-card-header>
-          <ion-card-title>Hotel Central</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-      <ion-card>
-        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-        <ion-card-header>
-          <ion-card-title>Clube Metrópole</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </div>
-  </div>
-  <div class="ion-padding">
-    <h2>Guias Turísticos</h2>
-  </div>
+  <Carousel [items]="[
+    { titulo: 'Josefim Ferreira' },
+    { titulo: 'Mariana Lima' },
+    { titulo: 'Miguel Luis' },
+    { titulo: 'Luciana Barbosa' }
+  ]" [nome]="'Guias Turísticos'"></Carousel>
 
 </ion-content>
