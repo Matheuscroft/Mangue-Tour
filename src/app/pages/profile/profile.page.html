@@ -31,10 +31,29 @@
   </ion-card>
 
   <Carousel [items]="[
-    { titulo: 'Restaurantes Tradicionais' },
-    { titulo: 'Museus Culturais' },
-    { titulo: 'Música e Dança' }
+    {  tipo: 'roteiro', titulo: 'Restaurantes Tradicionais' },
+    {  tipo: 'roteiro', titulo: 'Museus Culturais' },
+    {  tipo: 'roteiro', titulo: 'Música e Dança' }
   ]" [nome]="'Roteiros da Comunidade'"></Carousel>
+
+  <Carousel 
+  [items]="[
+    { tipo: 'roteiro', titulo: 'Restaurantes Tradicionais', imagem: 'imagem1.jpg' },
+    { tipo: 'ponto', titulo: 'Praça Central', endereco: 'Rua A, 123' },
+    { tipo: 'viagem', titulo: 'Viagem para Paris', ano: 2023, dataInicio: '01-06-2023', dataFim: '10-06-2023' }
+  ]" 
+  [nome]="'Roteiros da Comunidade'">
+</Carousel>
+
+<Carousel 
+  [items]="[
+    { tipo: 'viagem', titulo: 'Recife', ano: 2024, dataInicio: '09/10', dataFim: '16/10' },
+    { tipo: 'viagem', titulo: 'Recife', ano: 2024, dataInicio: '01/07', dataFim: '25/07' },
+    { tipo: 'viagem', titulo: 'Recife', ano: 2023, dataInicio: '20/10', dataFim: '23/10' }
+  ]" 
+  [nome]="'Minhas Viagens'">
+</Carousel>
+
 
   <div class="ion-padding">
     <div class="header">

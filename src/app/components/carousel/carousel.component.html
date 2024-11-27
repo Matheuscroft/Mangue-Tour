@@ -1,10 +1,27 @@
 <div class="ion-padding">
   <h2>{{ nome }}</h2>
   <div class="carousel-container">
-    <CardRoteiro
-      *ngFor="let item of items"
-      [titulo]="item.titulo"
-      [imagem]="item.imagem"
-    ></CardRoteiro>
+    <ng-container *ngFor="let item of items">
+      <ng-container [ngSwitch]="item.tipo">
+        
+        <!-- CardRoteiro -->
+        <CardRoteiro *ngSwitchCase="'roteiro'" [titulo]="item.titulo" [imagem]="item.imagem"></CardRoteiro>
+        
+        <!-- CardPonto -->
+        <CardPonto *ngSwitchCase="'ponto'" [titulo]="item.titulo" [endereco]="item.endereco"></CardPonto>
+        
+        <!-- CardViagem -->
+        <CardViagem *ngSwitchCase="'viagem'" 
+                    [titulo]="item.titulo" 
+                    [ano]="item.ano" 
+                    [dataInicio]="item.dataInicio" 
+                    [dataFim]="item.dataFim"></CardViagem>
+        
+        <!-- Caso nenhum tipo seja encontrado -->
+        <div *ngSwitchDefault>
+          <p>Tipo de card não encontrado</p>
+        </div>
+      </ng-container>
+    </ng-container>
   </div>
 </div>
