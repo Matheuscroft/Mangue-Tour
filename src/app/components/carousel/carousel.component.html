@@ -8,7 +8,7 @@
         <CardRoteiro *ngSwitchCase="'roteiro'" [titulo]="item.titulo" [imagem]="item.imagem"></CardRoteiro>
         
         <!-- CardPonto -->
-        <CardPonto *ngSwitchCase="'ponto'" [titulo]="item.titulo" [endereco]="item.endereco"></CardPonto>
+        <CardPonto *ngSwitchCase="'ponto'" [ponto]="item"></CardPonto>
         
         <!-- CardViagem -->
         <CardViagem *ngSwitchCase="'viagem'" 

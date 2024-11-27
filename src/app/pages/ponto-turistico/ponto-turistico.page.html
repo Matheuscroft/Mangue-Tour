@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ ponto?.Nome_Ponto }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>{{ ponto?.Nome_Ponto }}</h2>
+  <p><strong>Endereço:</strong> {{ ponto?.Logradouro }}, {{ ponto?.Bairro }}, {{ ponto?.Cidade }}</p>
+  <p><strong>Outros detalhes:</strong></p>
+  <pre>{{ ponto | json }}</pre>
+</ion-content>

@@ -14,10 +14,12 @@ export class ProfilePage implements OnInit {
   constructor(private pontosServicoService: PontosServicoService) { }
 
   ngOnInit() {
-
     this.pontosServicoService.getPontosTuristicosList().subscribe((data: any) => {
-      console.log(data)
-      this.pontosTuristicosList = data;
-    })
+      console.log(data);
+      this.pontosTuristicosList = data.map((item: any) => ({
+        ...item,
+        tipo: 'ponto',
+      }));
+    });
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'CardPonto',
@@ -7,7 +8,20 @@ import { Component, Input } from '@angular/core';
 })
 export class CardPontoComponent {
 
-  @Input() titulo: string = '';
-  @Input() endereco?: string;
+  @Input() ponto: any;
+
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    console.log("this.ponto");
+    console.log(this.ponto);
+  }
+
+
+  irParaDetalhe() {
+    this.router.navigate(['/ponto-turistico', this.ponto.ID_Ponto], {
+      queryParams: { ponto: JSON.stringify(this.ponto) }
+    });
+  }
 
 }

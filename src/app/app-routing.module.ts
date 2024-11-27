@@ -29,7 +29,12 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'ponto-turistico/:id',
+    loadChildren: () => import('./pages/ponto-turistico/ponto-turistico.module').then( m => m.PontoTuristicoPageModule)
   }
+
 ];
 @NgModule({
   imports: [

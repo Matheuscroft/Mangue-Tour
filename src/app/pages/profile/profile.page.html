@@ -30,21 +30,6 @@
     </ion-card-content>
   </ion-card>
 
-  <Carousel [items]="[
-    {  tipo: 'roteiro', titulo: 'Restaurantes Tradicionais' },
-    {  tipo: 'roteiro', titulo: 'Museus Culturais' },
-    {  tipo: 'roteiro', titulo: 'Música e Dança' }
-  ]" [nome]="'Roteiros da Comunidade'"></Carousel>
-
-  <Carousel 
-  [items]="[
-    { tipo: 'roteiro', titulo: 'Restaurantes Tradicionais', imagem: 'imagem1.jpg' },
-    { tipo: 'ponto', titulo: 'Praça Central', endereco: 'Rua A, 123' },
-    { tipo: 'viagem', titulo: 'Viagem para Paris', ano: 2023, dataInicio: '01-06-2023', dataFim: '10-06-2023' }
-  ]" 
-  [nome]="'Roteiros da Comunidade'">
-</Carousel>
-
 <Carousel 
   [items]="[
     { tipo: 'viagem', titulo: 'Recife', ano: 2024, dataInicio: '09/10', dataFim: '16/10' },
@@ -135,66 +120,16 @@
     </div>
   </div>
 
+  <Carousel 
+  [items]="[
+    { tipo: 'roteiro', titulo: 'Tour Igrejas Recife' },
+    { tipo: 'roteiro', titulo: 'Estátuas Culturais' },
+    { tipo: 'roteiro', titulo: 'Pontes Recife' }
+  ]" 
+  [nome]="'Meus Roteiros'">
+</Carousel>
 
-  <div class="ion-padding">
-    <div class="header">
-      <h2 class="carousel-title">Meus Roteiros
-      </h2>
-      <ion-icon style="padding-left: 10px;" size="large" name="add-circle-outline"></ion-icon>
-    </div>
-
-    <div class="carousel-container">
-      <ion-card class="carousel-card">
-        <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Tour Igrejas Recife</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="carousel-card">
-        <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Estátuas Culturais</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="carousel-card">
-        <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Pontes Recife</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-
-    </div>
-  </div>
+<Carousel [items]="pontosTuristicosList" [nome]="'Pontos Turísticos'"></Carousel>
 
 
-  <div class="ion-padding">
-    <div class="header">
-      <h2 class="carousel-title">Meus Pontos
-      </h2>
-      <ion-icon style="padding-left: 10px;" size="large" name="add-circle-outline"></ion-icon>
-    </div>
-
-    <div class="carousel-container">
-      <ion-card class="carousel-card">
-        <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Igreja N. Senhora do Carmo</ion-card-title>
-          <ion-card-subtitle>Avenida Dantas Barretos</ion-card-subtitle>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="carousel-card">
-        <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Ponte da Boa Vista</ion-card-title>
-          <ion-card-subtitle>Rua do Sol</ion-card-subtitle>
-        </ion-card-header>
-      </ion-card>
-
-      <ion-card class="carousel-card">
-        <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Paço do Frevo</ion-card-title>
-          <ion-card-subtitle>Rua da Guia</ion-card-subtitle>
-        </ion-card-header>
-      </ion-card>
-
-    </div>
-  </div>
 </ion-content>

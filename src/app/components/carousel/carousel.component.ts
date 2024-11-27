@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class CarouselComponent{
 
   //@Input() items: { titulo: string; imagem?: string }[] = [];
-  @Input() items: { tipo: string, titulo: string, imagem?: string, endereco?: string, ano?: number, dataInicio?: string, dataFim?: string }[] = [];
+  @Input() items: any[] = [];
   @Input() nome: string = '';
 
   
