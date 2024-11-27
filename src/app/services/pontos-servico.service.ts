@@ -7,16 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class PontosServicoService {
 
-  private apiUrl = 'http://127.0.0.1:5000/pontos'; 
+  private apiUrl = 'http://127.0.0.1:5000/pontos';
 
   constructor(private http: HttpClient) { }
 
   getPontosTuristicosList() {
-    return this.http.get(this.apiUrl);  
+    return this.http.get(this.apiUrl);
   }
 
   registerPontosTuristicos(data: any) {
-    return this.http.post(this.apiUrl, data);  
+    return this.http.post(this.apiUrl, data);
   }
 }
 

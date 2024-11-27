@@ -1,13 +1,14 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   inject,
-  OnDestroy,
   OnInit,
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { PontosServicoService } from 'src/app/services/pontos-servico.service';
+import { LatLngLiteral } from 'src/app/types/lat-lng-literal';
 
 declare var google: any;
 
@@ -17,19 +18,29 @@ declare var google: any;
   styleUrls: ['./map.component.scss'],
   standalone: true,
 })
-export class MapComponent implements OnInit, OnDestroy {
+
+export class MapComponent implements OnInit, AfterViewInit {
+
   @ViewChild('map', { static: true }) mapElementRef!: ElementRef;
   center = { lat: -8.063164603842008, lng: -34.87109418036182 };
   map: any;
   marker: any;
   mapListener: any;
   markerListener: any;
-  intersectionObserver: any;
 
   private renderer = inject(Renderer2);
-  constructor() {}
+  pontosTuristicosList: any = null;
 
-  ngOnInit() {}
+  constructor(private pontosServicoService: PontosServicoService) {}
+
+  ngOnInit() {
+    this.pontosServicoService
+      .getPontosTuristicosList()
+      .subscribe((data: any) => {
+        console.log(data);
+        this.pontosTuristicosList = data;
+      });
+  }
 
   ngAfterViewInit() {
     this.loadMap();
@@ -40,7 +51,7 @@ export class MapComponent implements OnInit, OnDestroy {
     if (typeof google === 'undefined' || !google.maps) {
       // Carrega o script da API do Google Maps dinamicamente
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBQp1CSuh_44lc8YBiRBT05-YQiT0RA1JY&libraries=places`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBQp1CSuh_44lc8YBiRBT05-YQiT0RA1JY&libraries=places&loading=async`;
       script.async = true;
       script.defer = true;
       document.head.appendChild(script);
@@ -69,43 +80,36 @@ export class MapComponent implements OnInit, OnDestroy {
     });
 
     this.renderer.addClass(mapEl, 'visible');
-    this.addMarker(location);
-  }
-  async addMarker(location:any){
-    const {AdvancedMarkerElement} = await google.maps.importLibrary("marker");
 
-    this.marker = new AdvancedMarkerElement({
+    if (this.pontosTuristicosList && this.pontosTuristicosList.length > 0) {
+    this.pontosTuristicosList.forEach((ponto: any) => {
+      const location: LatLngLiteral = {
+        lat: parseFloat(ponto.Latitude),
+        lng: parseFloat(ponto.Longitude),
+      };
+      this.addMarker(location, ponto.Nome_Ponto, ponto.Descricao_Ponto);
+    });
+  } else {
+    console.log('Nenhum ponto turístico encontrado');
+  }
+  }
+
+  async addMarker(
+    markerLocation: LatLngLiteral,
+    title: string,
+    contentHtml: string
+  ) {
+    const { AdvancedMarkerElement } = await google.maps.importLibrary('marker');
+
+    const customContent = document.createElement('div');
+    customContent.innerHTML = contentHtml;
+
+    const marker = new AdvancedMarkerElement({
+      position: markerLocation,
       map: this.map,
-      position: location,
-      gmpDraggable: true,
-    });
-
-    this.markerListener = this.marker.addListener("dragend", (event: any) => {
-
-      console.log(event.latLng.lat());
-
-      this.marker.position = event.latLng;
-      this.map.panTo(event.latLng);
-    });
-
-    this.mapListener = this.map.addListener("click", (event:any) => {
-      console.log(event.latLng.lat());
-
-      this.marker.position = event.latLng;
-      this.map.panTo(event.latLng);
+      content: customContent,
+      title: title,
     });
   }
 
-  ngOnDestroy(): void {
-      if(this.mapListener){
-        google.maps.event.removeListener(this.mapListener);
-        this.mapListener = null;
-      }
-      if(this.markerListener){
-        this.marker.removeEventListener('dragend', this.markerListener);
-        this.markerListener = null;
-      }
-      console.log('marker Listener: ', this.markerListener);
-      console.log('map Listener: ', this.mapListener);
-  }
 }

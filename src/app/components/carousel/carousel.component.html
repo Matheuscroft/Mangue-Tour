@@ -1,10 +1,10 @@
 <div class="ion-padding">
   <h2>{{ nome }}</h2>
   <div class="carousel-container">
-    <CardRoteiro
+    <app-card-roteiro
       *ngFor="let item of items"
       [titulo]="item.titulo"
       [imagem]="item.imagem"
-    ></CardRoteiro>
+    ></app-card-roteiro>
   </div>
 </div>

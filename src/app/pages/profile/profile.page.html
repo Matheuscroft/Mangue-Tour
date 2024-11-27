@@ -30,41 +30,42 @@
     </ion-card-content>
   </ion-card>
 
-  <Carousel [items]="[
+  <app-carousel [items]="[
     { titulo: 'Restaurantes Tradicionais' },
     { titulo: 'Museus Culturais' },
     { titulo: 'Música e Dança' }
-  ]" [nome]="'Roteiros da Comunidade'"></Carousel>
+  ]" [nome]="'Roteiros da Comunidade'"></app-carousel>
 
   <div class="ion-padding">
     <div class="header">
       <h2 class="carousel-title">Minhas Viagens
       </h2>
-      <ion-button color="light" shape="round" id="open-modal"><ion-icon slot="icon-only" size="large"
+      <ion-button color="light" shape="round" id="open-modal-viagem"><ion-icon slot="icon-only" size="large"
           name="add-circle-outline"></ion-icon></ion-button>
     </div>
-    <ion-modal #modal trigger="open-modal">
+    <ion-modal #modal trigger="open-modal-viagem">
       <ng-template>
         <ion-content>
           <ion-toolbar class="novaViagem">
-            <ion-title>Modal</ion-title>
+            <ion-title>Nova Viagem</ion-title>
             <ion-buttons slot="end">
-              <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+              <ion-button color="light" (click)="modal.dismiss()">Fechar</ion-button>
             </ion-buttons>
           </ion-toolbar>
           <ion-list>
             <h3>Título</h3>
             <ion-item>
               <ion-input label="Título" label-placement="floating" fill="outline" placeholder="Título da Viagem"
-                [clearInput]="true"></ion-input>
+                [(ngModel)]="novaViagem.titulo" [clearInput]="true">
+              </ion-input>
             </ion-item>
-
 
             <ion-label>Data de Início</ion-label>
             <ion-datetime-button datetime="dataTimeStart"></ion-datetime-button>
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime id="dataTimeStart" [showDefaultButtons]="true"></ion-datetime>
+                <ion-datetime id="dataTimeStart" [showDefaultButtons]="true" (ionChange)="atualizarDataInicio($event)">
+                </ion-datetime>
               </ng-template>
             </ion-modal>
 
@@ -72,57 +73,75 @@
             <ion-datetime-button datetime="dataTimeEnd"></ion-datetime-button>
             <ion-modal [keepContentsMounted]="true">
               <ng-template>
-                <ion-datetime id="dataTimeEnd" [showDefaultButtons]="true"></ion-datetime>
+                <ion-datetime id="dataTimeEnd" [showDefaultButtons]="true" (ionChange)="atualizarDataFim($event)">
+                </ion-datetime>
               </ng-template>
             </ion-modal>
           </ion-list>
+          <ion-button class="botaoModal" expand="block" color="primary" (click)="adicionarViagem(); modal.dismiss();">
+            Adicionar Viagem
+          </ion-button>
         </ion-content>
       </ng-template>
     </ion-modal>
 
-    
-
     <div class="carousel-container">
-      <ion-card class="carousel-card">
+      <ion-card *ngFor="let viagem of viagens" class="carousel-card">
         <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Recife</ion-card-title>
-          <ion-card-subtitle>2023</ion-card-subtitle>
+          <ion-card-title class="carousel-title-card">{{ viagem.titulo }}</ion-card-title>
+          <ion-card-subtitle>{{ viagem.ano }}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          09/10 - 16/10
+          {{ viagem.periodo }}
         </ion-card-content>
       </ion-card>
-
-      <ion-card class="carousel-card">
-        <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Recife</ion-card-title>
-          <ion-card-subtitle>2024</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          01/07 - 25/07
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="carousel-card">
-        <ion-card-header class="carousel-header-card">
-          <ion-card-title class="carousel-title-card">Recife</ion-card-title>
-          <ion-card-subtitle>2024</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          20/10 - 23/10
-        </ion-card-content>
-      </ion-card>
-
     </div>
   </div>
-
 
   <div class="ion-padding">
     <div class="header">
       <h2 class="carousel-title">Meus Roteiros
       </h2>
-      <ion-icon style="padding-left: 10px;" size="large" name="add-circle-outline"></ion-icon>
+      <ion-button color="light" shape="round" id="open-modal-roteiro"><ion-icon slot="icon-only" size="large"
+          name="add-circle-outline"></ion-icon></ion-button>
     </div>
+    <ion-modal #modal trigger="open-modal-roteiro">
+      <ng-template>
+        <ion-content>
+          <ion-toolbar class="novoRoteiro">
+            <ion-title>Novo Roteiro</ion-title>
+            <ion-buttons slot="end">
+              <ion-button color="light" (click)="modal.dismiss()">Fechar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+          <ion-list>
+            <h3>Título</h3>
+            <ion-item>
+              <ion-input label="Título" label-placement="floating" fill="outline" placeholder="Título do Roteiro"
+                [(ngModel)]="novoRoteiro.titulo" [clearInput]="true">
+              </ion-input>
+            </ion-item>
+
+            <ion-label>Categoria</ion-label>
+            <ion-select [(ngModel)]="novoRoteiro.pontoTuristico.categoria" placeholder="Selecione uma Categoria">
+              <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                {{ categoria.nome }}
+              </ion-select-option>
+            </ion-select>
+
+            <ion-label>Selecionar Pontos</ion-label>
+            <ion-select [(ngModel)]="novoRoteiro.pontoTuristico.nome" placeholder="Selecione um ponto turístico">
+              <ion-select-option *ngFor="let ponto of pontos" [value]="ponto.id">
+                {{ ponto.nome }}
+              </ion-select-option>
+            </ion-select>
+          </ion-list>
+          <ion-button class="botaoModal" expand="block" color="primary" (click)="adicionarViagem(); modal.dismiss();">
+            Adicionar Viagem
+          </ion-button>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
 
     <div class="carousel-container">
       <ion-card class="carousel-card">

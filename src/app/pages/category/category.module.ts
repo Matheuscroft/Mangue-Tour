@@ -13,7 +13,7 @@ import { CategoryPage } from './category.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoryPageRoutingModule
+    CategoryPageRoutingModule,
   ],
   declarations: [CategoryPage]
 })
