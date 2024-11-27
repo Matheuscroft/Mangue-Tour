@@ -1,4 +1,4 @@
-<ion-card [ngClass]="{ 'card-with-image': imagem, 'card-without-image': !imagem }">
+<ion-card [ngClass]="{ 'card-with-image': imagem, 'card-without-image': !imagem }" (click)="irParaDetalhe()">
   <ng-container *ngIf="imagem">
     <img [src]="imagem" alt="{{ titulo }}" />
   </ng-container>
@@ -6,3 +6,4 @@
     <ion-card-title>{{ titulo }}</ion-card-title>
   </ion-card-header>
 </ion-card>
+

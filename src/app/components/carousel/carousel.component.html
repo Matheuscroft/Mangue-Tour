@@ -5,7 +5,12 @@
       <ng-container [ngSwitch]="item.tipo">
         
         <!-- CardRoteiro -->
-        <CardRoteiro *ngSwitchCase="'roteiro'" [titulo]="item.titulo" [imagem]="item.imagem"></CardRoteiro>
+        <CardRoteiro
+        *ngSwitchCase="'roteiro'"
+        [roteiro]="item"
+        [titulo]="item.titulo"
+        [imagem]="item.imagem"
+      ></CardRoteiro>
         
         <!-- CardPonto -->
         <CardPonto *ngSwitchCase="'ponto'" [ponto]="item"></CardPonto>
@@ -25,3 +30,7 @@
     </ng-container>
   </div>
 </div>
+
+
+        
+

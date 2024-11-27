@@ -33,7 +33,12 @@ const routes: Routes = [
   {
     path: 'ponto-turistico/:id',
     loadChildren: () => import('./pages/ponto-turistico/ponto-turistico.module').then( m => m.PontoTuristicoPageModule)
+  },
+  {
+    path: 'roteiro',
+    loadChildren: () => import('./pages/roteiro/roteiro.module').then( m => m.RoteiroPageModule)
   }
+
 
 ];
 @NgModule({

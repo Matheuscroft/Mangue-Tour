@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PontoTuristicoPageRoutingModule } from './ponto-turistico-routing.module';
 
 import { PontoTuristicoPage } from './ponto-turistico.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PontoTuristicoPageRoutingModule
+    PontoTuristicoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [PontoTuristicoPage]
 })

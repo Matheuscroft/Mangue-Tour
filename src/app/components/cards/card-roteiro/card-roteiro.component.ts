@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'CardRoteiro',
@@ -7,11 +8,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardRoteiroComponent  implements OnInit {
 
-  constructor() { }
+  @Input() roteiro: any;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
   @Input() titulo: string = '';
   @Input() imagem?: string;
+
+  
+
+
+  irParaDetalhe() {
+    this.router.navigate(['/roteiro'], {
+      queryParams: { roteiro: JSON.stringify(this.roteiro) }
+    });
+  }
 
 }

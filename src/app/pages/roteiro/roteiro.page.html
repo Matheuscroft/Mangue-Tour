@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ roteiro?.titulo || 'Roteiro' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ roteiro?.titulo || 'Roteiro' }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <img *ngIf="roteiro?.imagem" [src]="roteiro.imagem" alt="{{ roteiro?.titulo }}" />
+    <h2>{{ roteiro?.titulo }}</h2>
+    <p>{{ roteiro?.detalhes }}</p>
+  </div>
+</ion-content>

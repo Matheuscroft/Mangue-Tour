@@ -120,14 +120,8 @@
     </div>
   </div>
 
-  <Carousel 
-  [items]="[
-    { tipo: 'roteiro', titulo: 'Tour Igrejas Recife' },
-    { tipo: 'roteiro', titulo: 'Estátuas Culturais' },
-    { tipo: 'roteiro', titulo: 'Pontes Recife' }
-  ]" 
-  [nome]="'Meus Roteiros'">
-</Carousel>
+  <Carousel [items]="roteiros" [nome]="'Meus Roteiros'"></Carousel>
+
 
 <Carousel [items]="pontosTuristicosList" [nome]="'Pontos Turísticos'"></Carousel>
 

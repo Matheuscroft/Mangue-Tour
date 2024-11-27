@@ -10,6 +10,11 @@ import { PontosServicoService } from 'src/app/services/pontos-servico.service';
 export class ProfilePage implements OnInit {
 
   pontosTuristicosList: any = null;
+  roteiros: any[] = [
+    { tipo: 'roteiro', titulo: 'Tour Igrejas Recife', detalhes: 'Detalhes do roteiro 1' },
+    { tipo: 'roteiro', titulo: 'Estátuas Culturais', detalhes: 'Detalhes do roteiro 2' },
+    { tipo: 'roteiro', titulo: 'Pontes Recife', detalhes: 'Detalhes do roteiro 3' }
+  ];
 
   constructor(private pontosServicoService: PontosServicoService) { }
 
@@ -21,5 +26,6 @@ export class ProfilePage implements OnInit {
         tipo: 'ponto',
       }));
     });
+   
   }
 }
