@@ -12,7 +12,7 @@
 <ion-content class="ion-padding">
   <section class="titulo-categorias">
     <h1>{{ ponto?.Nome_Ponto }}</h1>
-    <p>Categorias: {{ ponto?.Categorias?.join(', ') || 'Ponto Turístico'}}</p>
+    <p>Categorias: {{ ponto?.Categorias?.join(', ') || 'Ponto Turístico' | uppercase}}</p>
   </section>
   <section class="informacoes">
     <InformacaoItemSpan icone="location-outline" [texto]="'Localização: ' + ponto?.Logradouro + ', ' + ponto?.Bairro + ', ' + ponto?.Cidade"></InformacaoItemSpan>
